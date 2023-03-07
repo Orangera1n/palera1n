@@ -405,7 +405,7 @@ if [ "$cmd_not_found" = "1" ]; then
     exit 1
 fi
 
-# Download gaster
+# Download 
 if [ -e "$dir"/gaster ]; then
     "$dir"/gaster &> /dev/null > /dev/null | grep -q 'usb_timeout: 5' && rm "$dir"/gaster
 fi
@@ -414,10 +414,12 @@ if [ ! -e "$dir"/gaster ]; then
     echo '[-] gaster not installed. Press any key to install it, or press ctrl + c to cancel'
     read -n 1 -s
     _check_network_connection
-    curl -sLO https://static.palera.in/deps/gaster-"$os".zip
-    unzip gaster-"$os".zip
-    mv gaster "$dir"/
-    rm -rf gaster gaster-"$os".zip
+    git clone https://github.com/0x7ff/gaster.git
+    cd gaster 
+    make
+    mv ./gaster "$dir"/
+    cd ..
+    rm -rf gaster
 fi
 
 # Check for pyimg4
