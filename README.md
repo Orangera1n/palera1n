@@ -23,6 +23,9 @@ It boots the device with multiple patches required. On first run, it'll boot a r
 
 - palera1n will never work in VirtualBox, VMware or any virtual machine that doesn't support a PCI passthrough.
 
+# Fork Notes
+- This fork compiles gaster instead of grabbing it from https://nightly.link, due to issues that said gaster has with M1 Macs.
+
 # Requirements
 - Needs a checkm8 vulnerable iOS device on iOS 15.x or 16.x (`A8` - `A11`)
 	-	If you want the device to be semi-tethered, **you will need 5-10GB of space** for the fakefs. This means that 16GB devices cannot be semi-tethered
